@@ -84,7 +84,26 @@
     var whetherToAdd=true
     function changeWallpaperList(){
         if(whetherToAdd){
-            document.getElementById("modifyTheListOfWallpapers").innerHTML=`<button onclick="useBingWallpaper()">使用Bing每日一图</button><button onclick="noUseWallpaper()">不使用壁纸</button>`;
+            document.getElementById("modifyTheListOfWallpapers").innerHTML=`<table border="1">
+            <tr>
+                <td>
+                    <button onclick="useBingWallpaper()">使用Bing每日一图</button>
+                </td>
+                <td>
+                    <button onclick="useTwoDimensionalWallpaper()">使用随机二次元壁纸</button>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <button onclick="noUseWallpaper()">不使用壁纸</button>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <p id="whiteFont">PS:图片系第三方提供,</br>与本网站作者无关</p>
+                </td>
+            </tr>
+        </table>`;
             whetherToAdd=false;
         }
         else{
@@ -95,6 +114,10 @@
     function useBingWallpaper(){
         let bingWallpaperAPI="https://api.szfx.top/bing/api/";
         document.getElementById("wallpaper").background=bingWallpaperAPI;
+    }
+    function useTwoDimensionalWallpaper(){
+        /*这里使用的是(https://api.ixiaowai.cn/)的API接口*/
+        document.getElementById("wallpaper").background="https://api.ixiaowai.cn/api/api.php";
     }
     function noUseWallpaper(){
         document.getElementById("wallpaper").background="";
