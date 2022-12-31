@@ -49,22 +49,41 @@
     </style>
 </head>
 <body background="" id="wallpaper">
-    <!--[if IE]>
-        <div align="center">
-            <p id="whiteFont">您的浏览器过于老旧,可能会出现浏览问题,建议您更换浏览器</p>
+    <div class="container mt-3">
+        <!--[if IE]>
+            <div align="center">
+                <p id="whiteFont">您的浏览器过于老旧,可能会出现浏览问题,建议您更换浏览器</p>
+            </div>
+        <![endif]-->
+        <p id="socialMoralityPutout">本次功德值:0</p>
+    
+        <!--"修改壁纸"的HTML部分-->
+        <div class="dropdown">
+            <button type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown">修改壁纸</button>
+            <ul class="dropdown-menu">
+                <!--是的，你没有看错，按钮不用<button>而是用"超链接"<a>-->
+                <li>
+                    <a class="dropdown-item" onclick="useBingWallpaper()">使用Bing每日一图</a>
+                </li>
+                <li>
+                    <a class="dropdown-item" onclick="useTwoDimensionalWallpaper()">使用随机二次元壁纸</a>
+                </li>
+                <li>
+                    <a class="dropdown-item" onclick="noUseWallpaper()">不使用壁纸</a>
+                </li>
+                <li>
+                    <p class="dropdown-header">PS:图片系第三方提供,与本网站作者无关</p>
+                </li>
+            </ul>
         </div>
-    <![endif]-->
-    <p id="socialMoralityPutout">本次功德值:0</p>
-    
-    <!--"修改壁纸"的HTML部分-->
-    <button onclick="changeWallpaperList()" id="changeWallpaperButton" type="button" class="btn btn-outline-primary">修改壁纸</button>
-    <div id="modifyTheListOfWallpapers"></div>
-    
-    <div id="Muyu">
-        <h1 id="whiteFont">电子木鱼</h1>
-        <img onclick="knockOnTheWoodfish()" src="data:image/jpeg;base64,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" >
-        <p id="whiteFont">点击木鱼以完成敲击</p>
-        <p id="socialMoralityAddOne"></p>
+        
+        <!--木鱼部分-->
+        <div id="Muyu">
+            <h1 id="whiteFont">电子木鱼</h1>
+            <img onclick="knockOnTheWoodfish()" src="data:image/jpeg;base64,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" >
+            <p id="whiteFont">点击木鱼以完成敲击</p>
+            <p id="socialMoralityAddOne"></p>
+        </div>
     </div>
 </body>
 
@@ -93,43 +112,13 @@
     }
 
     /*"修改壁纸"的JavaScript部分*/
-    var whetherToAdd=true
-    function changeWallpaperList(){
-        if(whetherToAdd){
-            document.getElementById("modifyTheListOfWallpapers").innerHTML=`<table border="1">
-            <tr>
-                <td>
-                    <button onclick="useBingWallpaper()" type="button" class="btn btn-outline-info">使用Bing每日一图</button>
-                </td>
-                <td>
-                    <button onclick="useTwoDimensionalWallpaper()" type="button" class="btn btn-outline-info">使用随机二次元壁纸</button>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <button onclick="noUseWallpaper()" type="button" class="btn btn-outline-info">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp不使用壁纸&nbsp&nbsp&nbsp&nbsp&nbsp</button>
-                </td>
-            </tr>
-            <tr>
-                <td colspan="2">
-                    <p id="whiteFont">PS:图片系第三方提供,与本网站作者无关</p>
-                </td>
-            </tr>
-        </table>`;
-            whetherToAdd=false;
-        }
-        else{
-            document.getElementById("modifyTheListOfWallpapers").innerHTML=``;
-            whetherToAdd=true;
-        }
-    }
     function useBingWallpaper(){
         let bingWallpaperAPI="https://api.szfx.top/bing/api/";
         document.getElementById("wallpaper").background=bingWallpaperAPI;
     }
     function useTwoDimensionalWallpaper(){
-        /*这里使用的是(https://api.ixiaowai.cn/)的API接口*/
-        document.getElementById("wallpaper").background="https://api.ixiaowai.cn/api/api.php";
+        /*原API失效，更换为韩小韩(https://api.vvhan.com/api/acgimg)的API*/
+        document.getElementById("wallpaper").background="https://api.vvhan.com/api/acgimg";
     }
     function noUseWallpaper(){
         document.getElementById("wallpaper").background="";
