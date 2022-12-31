@@ -6,6 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="keywords" content="电子木鱼,木鱼,机械菩萨">
     <title>电子木鱼</title>
+
+    <!--Bootstrap5的CSS(jsdelivr的CDN)-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
     <style>
         body{
             background-color:black;
@@ -45,10 +49,15 @@
     </style>
 </head>
 <body background="" id="wallpaper">
+    <!--[if IE]>
+        <div align="center">
+            <p id="whiteFont">您的浏览器过于老旧,可能会出现浏览问题,建议您更换浏览器</p>
+        </div>
+    <![endif]-->
     <p id="socialMoralityPutout">本次功德值:0</p>
     
     <!--"修改壁纸"的HTML部分-->
-    <button onclick="changeWallpaperList()" id="changeWallpaperButton">修改壁纸</button>
+    <button onclick="changeWallpaperList()" id="changeWallpaperButton" type="button" class="btn btn-outline-primary">修改壁纸</button>
     <div id="modifyTheListOfWallpapers"></div>
     
     <div id="Muyu">
@@ -61,6 +70,9 @@
 
 <!--Microsoft CDN的jQuery-->
 <script src="https://ajax.aspnetcdn.com/ajax/jquery/jquery-1.9.0.min.js"></script>
+
+<!--jsdelivr CDN的Bootstrap JS文件-->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 
 <script type="text/javascript">
     "use script";
@@ -87,20 +99,20 @@
             document.getElementById("modifyTheListOfWallpapers").innerHTML=`<table border="1">
             <tr>
                 <td>
-                    <button onclick="useBingWallpaper()">使用Bing每日一图</button>
+                    <button onclick="useBingWallpaper()" type="button" class="btn btn-outline-info">使用Bing每日一图</button>
                 </td>
                 <td>
-                    <button onclick="useTwoDimensionalWallpaper()">使用随机二次元壁纸</button>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <button onclick="noUseWallpaper()">不使用壁纸</button>
+                    <button onclick="useTwoDimensionalWallpaper()" type="button" class="btn btn-outline-info">使用随机二次元壁纸</button>
                 </td>
             </tr>
             <tr>
                 <td>
-                    <p id="whiteFont">PS:图片系第三方提供,</br>与本网站作者无关</p>
+                    <button onclick="noUseWallpaper()" type="button" class="btn btn-outline-info">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp不使用壁纸&nbsp&nbsp&nbsp&nbsp&nbsp</button>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <p id="whiteFont">PS:图片系第三方提供,与本网站作者无关</p>
                 </td>
             </tr>
         </table>`;
