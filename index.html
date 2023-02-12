@@ -157,14 +157,11 @@
     }
 
     /*"修改壁纸"的JavaScript部分*/
-    function useBingWallpaper(){/*
-        let bingWallpaperAPI="https://api.szfx.top/bing/api/";
-        document.getElementById("wallpaper").background=bingWallpaperAPI;*/
+    function useBingWallpaper(){
         document.getElementById("wallpaper").style.backgroundImage="url(https://api.szfx.top/bing/api/)";
     }
     function useTwoDimensionalWallpaper(){
-        /*原API失效，更换为韩小韩(https://api.vvhan.com/api/acgimg)的API*//*
-        document.getElementById("wallpaper").background="https://api.vvhan.com/api/acgimg";*/
+        /*原API失效，更换为韩小韩(https://api.vvhan.com/api/acgimg)的API*/
         document.getElementById("wallpaper").style.backgroundImage="https://api.vvhan.com/api/acgimg";
     }
     function noUseWallpaper(){
